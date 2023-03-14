@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Using CSS Custom Properties for theming in modern web applications</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=522923edaa" />
+
+    <link rel="canonical" href="https://blog.girish.gopaul.me/using-css-variable-for-theming-in-modern-web-applications/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Things I&#x27;ve learned" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Using CSS Custom Properties for theming in modern web applications" />
+    <meta property="og:description" content="CSS Custom Properties (aka CSS Variables) have been around for quite some time now. Though adoption has been slow (as for most w3c standards 😅), we can now see it in action in most web apps (YouTube, Facebook, etc...).
+
+
+But what are CSS Custom Properties exactly?
+
+As the name states, they" />
+    <meta property="og:url" content="https://blog.girish.gopaul.me/using-css-variable-for-theming-in-modern-web-applications/" />
+    <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg" />
+    <meta property="article:published_time" content="2023-03-14T03:15:01.000Z" />
+    <meta property="article:modified_time" content="2023-03-14T09:32:12.000Z" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Using CSS Custom Properties for theming in modern web applications" />
+    <meta name="twitter:description" content="CSS Custom Properties (aka CSS Variables) have been around for quite some time now. Though adoption has been slow (as for most w3c standards 😅), we can now see it in action in most web apps (YouTube, Facebook, etc...).
+
+
+But what are CSS Custom Properties exactly?
+
+As the name states, they" />
+    <meta name="twitter:url" content="https://blog.girish.gopaul.me/using-css-variable-for-theming-in-modern-web-applications/" />
+    <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Girish Gopaul" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="5000" />
+    <meta property="og:image:height" content="3500" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Things I&#x27;ve learned",
+        "url": "https://blog.girish.gopaul.me/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.girish.gopaul.me/favicon.ico"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Girish Gopaul",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.girish.gopaul.me/content/images/2023/03/avatar.jpg",
+            "width": 500,
+            "height": 500
+        },
+        "url": "https://blog.girish.gopaul.me/author/girish/",
+        "sameAs": []
+    },
+    "headline": "Using CSS Custom Properties for theming in modern web applications",
+    "url": "https://blog.girish.gopaul.me/using-css-variable-for-theming-in-modern-web-applications/",
+    "datePublished": "2023-03-14T03:15:01.000Z",
+    "dateModified": "2023-03-14T09:32:12.000Z",
+    "description": "CSS Custom Properties (aka CSS Variables) have been around for quite some time now. Though adoption has been slow (as for most w3c standards 😅), we can now see it in action in most web apps (YouTube, Facebook, etc...).\n\n\nBut what are CSS Custom Properties exactly?\n\nAs the name states, they are custom user defined properties that can be defined on pages and used in any stylesheet on the page (irrespective of order of definition).\n\n:root {\n  --primary-color: #87d4de;\n  --secondary-color: #de87c4;",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.girish.gopaul.me/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.38" />
+    <link rel="alternate" type="application/rss+xml" title="Things I&#x27;ve learned" href="https://blog.girish.gopaul.me/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="66b746b4e632e1a21630bf9409" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.girish.gopaul.me/" crossorigin="anonymous"></script>
+    <link href="https://blog.girish.gopaul.me/webmentions/receive/" rel="webmention" />
+    <script defer src="/public/cards.min.js?v=522923edaa"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=522923edaa">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+
+</head>
+<body class="post-template is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://blog.girish.gopaul.me">
+                        Things I&#x27;ve learned
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.girish.gopaul.me/">Home</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post no-image ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+        </div>
+
+        <h1 class="article-title">Using CSS Custom Properties for theming in modern web applications</h1>
+
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="/author/girish/" class="author-avatar">
+                        <img class="author-profile-image" src="/content/images/size/w100/2023/03/avatar.jpg" alt="Girish Gopaul" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/girish/">Girish Gopaul</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2023-03-14">Mar 14, 2023</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>CSS Custom Properties (aka CSS Variables) have been around for quite some time now. Though adoption has been slow (as for most w3c standards 😅), we can now see it in action in most web apps (YouTube, Facebook, etc...).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://blog.girish.gopaul.me/content/images/2023/03/Screenshot-2023-03-14-at-06.26.45.png" class="kg-image" alt loading="lazy" width="2000" height="869" srcset="https://blog.girish.gopaul.me/content/images/size/w600/2023/03/Screenshot-2023-03-14-at-06.26.45.png 600w, https://blog.girish.gopaul.me/content/images/size/w1000/2023/03/Screenshot-2023-03-14-at-06.26.45.png 1000w, https://blog.girish.gopaul.me/content/images/size/w1600/2023/03/Screenshot-2023-03-14-at-06.26.45.png 1600w, https://blog.girish.gopaul.me/content/images/size/w2400/2023/03/Screenshot-2023-03-14-at-06.26.45.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>Support for css variables is widespread in most user agents.</figcaption></figure><h3 id="but-what-are-css-custom-properties-exactly">But what are CSS Custom Properties exactly?</h3><p>As the name states, they are custom user defined properties that can be defined on pages and used in any stylesheet on the page (irrespective of order of definition).</p><figure class="kg-card kg-code-card"><pre><code class="language-css">:root {
+  --primary-color: #87d4de;
+  --secondary-color: #de87c4;
+}</code></pre><figcaption>global.css</figcaption></figure><p>Once defined on a page, we can make use of these custom properties on any stylesheet on that page.</p><pre><code class="language-css">button.primary {
+  background-color: var(--primary-color);
+}</code></pre><h3 id="interesting-but-why-use-custom-properties-instead-of-our-favorite-css-preprocessor-like-sass">Interesting... But why use custom properties instead of our favorite CSS preprocessor like <em>sass </em>?</h3><!--kg-card-begin: markdown--><ul>
+<li>Firstly because it does not require any kind of pre-processing or compiling.</li>
+<li>More importantly because it can be used in any stylesheet and <strong>not</strong> limited to the context of the preprocessor.</li>
+</ul>
+<!--kg-card-end: markdown--><h3 id="use-case-in-action">Use case in action</h3><figure class="kg-card kg-code-card"><pre><code class="language-jsx">const Button = styled.button`
+  background-color: var(--${({ secondary }) =&gt;
+    secondary ? 'secondary-color' : 'primary-color'});
+`
+
+&lt;Button&gt;Submit&lt;/Button&gt;
+&lt;Button secondary&gt;Cancel&lt;/Button&gt;</code></pre><figcaption>Use with React styled-components</figcaption></figure>
+    </section>
+
+
+</article>
+</main>
+
+
+
+
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://blog.girish.gopaul.me">Things I&#x27;ve learned</a> &copy; 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="/assets/built/casper.js?v=522923edaa"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+</body>
+</html>
